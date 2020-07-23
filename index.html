@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My ChartJS Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"></link>
+  </head>
+  <body>
+      <div class="container">
+          <canvas id="myChart"></chart>
+      </div>
+
+      <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+        //Global Options
+        Chart.defaults.global.defaultFontFamily='Lato';
+        Chart.defaults.global.defaultFontSize=18;
+        Chart.defaults.global.defaultFontColor='#777';
+
+
+
+        let nepPopChart = new Chart(myChart, {
+          type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+          data:{
+            labels:['kathmandu','pokhara','patan','biratnagar','birgunj','dharan'],
+            datasets:[{
+              label:'Population',
+              data:[
+                1442271,
+                200000,
+                183310,
+                182324,
+                133238,
+                108600
+              ],
+              //backgroundColor:'red'
+              backgroundColor:[
+                'red',
+                'green',
+                'yellow',
+                'magenta',
+                'black',
+                'blue'
+              ],
+              borderWidth:1,
+              borderColor:'#777',
+              hoverBorderWidth:'2',
+              hoverBorderColor:"#000"
+            }]
+          },
+          options:{
+            title:{
+              display:true,
+              text:'Largest Cities In Nepal',
+              fontSize:25,
+            },
+            legend:{
+              display:true,
+              position:'right',
+              labels:{
+                fontColor:'#000'
+              }
+            },
+            layout:{
+              padding:{
+                left:60,
+                right:0,
+                top:0,
+                bottom:0
+              }
+            },
+            tooltips:{
+              enabled:true
+            }
+
+          }
+        });
+      </script>
+
+  </body>
+</html>
